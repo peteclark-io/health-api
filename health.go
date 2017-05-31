@@ -22,7 +22,7 @@ type AggregateResult struct {
 }
 
 // Aggregator runs all checks
-func Aggregator(checks ...func() CheckResult) func() interface{} {
+func Aggregator(app string, checks ...func() CheckResult) func() interface{} {
 	return func() interface{} {
 		var results []CheckResult
 		overall := true
@@ -34,7 +34,7 @@ func Aggregator(checks ...func() CheckResult) func() interface{} {
 			}
 		}
 
-		return AggregateResult{"fixtures-rw", time.Now(), overall, results}
+		return AggregateResult{app, time.Now(), overall, results}
 	}
 }
 
