@@ -15,10 +15,10 @@ type CheckResult struct {
 
 // AggregateResult aggregates all health checks.
 type AggregateResult struct {
-	Application   string        `json:"application"`
-	Time          time.Time     `json:"time"`
-	OverallHealth bool          `json:"overallHealth"`
-	Results       []CheckResult `json:"results"`
+	Application string        `json:"application"`
+	Time        time.Time     `json:"time"`
+	Healthy     bool          `json:"healthy"`
+	Results     []CheckResult `json:"results"`
 }
 
 // Aggregator runs all checks
